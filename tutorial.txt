@@ -16,3 +16,5 @@ criar diretório types e arrastar o account.ts gerado pelo protoc para dentro
 ajustar os imports
 
 Ajustar o nest-cli.json para que os arquivos .proto sejam adicionados às builds
+
+Configurando o main.ts para suporte ao recurso e usando no controller e service users

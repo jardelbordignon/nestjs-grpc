@@ -1,35 +1,43 @@
 import { Controller } from '@nestjs/common';
-import { MessagePattern, Payload } from '@nestjs/microservices';
 import { UsersService } from './users.service';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import {
+  CreateUserDto,
+  FindOneUserDto,
+  PaginationDto,
+  UpdateUserDto,
+  User,
+  Users,
+  UsersServiceController,
+  UsersServiceControllerMethods,
+} from '@app/common';
+import { Observable } from 'rxjs';
 
 @Controller()
-export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+@UsersServiceControllerMethods()
+export class UsersController implements UsersServiceController {
+  constructor(private readonly service: UsersService) {}
 
-  @MessagePattern('createUser')
-  create(@Payload() createUserDto: CreateUserDto) {
-    return this.usersService.create(createUserDto);
+  createUser(data: CreateUserDto): User | Promise<User> | Observable<User> {
+    return this.service.create(data);
   }
 
-  @MessagePattern('findAllUsers')
-  findAll() {
-    return this.usersService.findAll();
+  findAllUsers(): Users | Promise<Users> | Observable<Users> {
+    return this.service.findAll();
   }
 
-  @MessagePattern('findOneUser')
-  findOne(@Payload() id: number) {
-    return this.usersService.findOne(id);
+  findOneUser(data: FindOneUserDto): User | Promise<User> | Observable<User> {
+    return this.service.findOne(data.id);
   }
 
-  @MessagePattern('updateUser')
-  update(@Payload() updateUserDto: UpdateUserDto) {
-    return this.usersService.update(updateUserDto.id, updateUserDto);
+  updateUser(data: UpdateUserDto): User | Promise<User> | Observable<User> {
+    return this.service.update(data.id, data);
   }
 
-  @MessagePattern('removeUser')
-  remove(@Payload() id: number) {
-    return this.usersService.remove(id);
+  removeUser(data: FindOneUserDto): User | Promise<User> | Observable<User> {
+    return this.service.remove(data.id);
+  }
+
+  queryUsers(data: Observable<PaginationDto>): Observable<Users> {
+    return this.service.queryUsers(data);
   }
 }
