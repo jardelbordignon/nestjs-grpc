@@ -18,3 +18,10 @@ ajustar os imports
 Ajustar o nest-cli.json para que os arquivos .proto sejam adicionados às builds
 
 Configurando o main.ts para suporte ao recurso e usando no controller e service users
+
+
+Criando o resource users rest no gateway
+nest g resource users
+> gateway > Rest Api > y
+
+como modificamos a nest-cli.json os arquivos foram gerados no diretórios users na raíz do projeto, arrastar para o gateway/src

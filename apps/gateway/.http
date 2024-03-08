@@ -1,0 +1,39 @@
+@baseUrl = http://localhost:4000
+@userId = c573d801-b6fe-4bae-bc25-9e2851c90186
+
+# @name get_all_users
+GET {{baseUrl}}/users
+###
+
+# @name get_user_emails
+GET {{baseUrl}}/users/paginated
+###
+
+# @name create_user
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "email": "johndoe@email.com",
+  "password": "Pwd@123"
+}
+###
+
+# @name get_one_user
+GET {{baseUrl}}/users/{{userId}}
+###
+
+# @name update_user
+PATCH {{baseUrl}}/users/{{userId}}
+Content-Type: application/json
+
+{
+  "socialMedia": {
+    "fbUri": "fb.com/user-abc"
+  }
+}
+###
+
+# @name detele_user
+DELETE {{baseUrl}}/users/{{userId}}
+###
