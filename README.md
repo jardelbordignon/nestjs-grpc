@@ -53,4 +53,4 @@ Dentro do diretório apps/gateway tem um arquivo .http com as requisições mape
 
 Este projeto tem como objetivo principal esclarecer os fundamentos dos microsserviços, destacando a importância do gateway na gestão da comunicação entre o cliente e os microsserviços. A utilização do gRPC não apenas facilita a comunicação entre os serviços, mas também contribui para a consistência na troca de informações.
 
-A definição de protocolos (protos) e a geração de tipos através do gRPC são essenciais para garantir que a comunicação entre os microsserviços seja eficiente, segura e consistente. Essas práticas asseguram que os dados trocados entre os serviços estejam corretamente formatados e validados, reduzindo a probabilidade de erros e melhorando a qualidade geral do sistema.
+A definição de protocolos (protos) e a geração de tipos utilizando a lib ts-proto são essenciais para garantir que a comunicação entre os microsserviços seja eficiente, segura e consistente. Essas práticas asseguram que os dados trocados entre os serviços estejam corretamente formatados e validados, reduzindo a probabilidade de erros e melhorando a qualidade geral do sistema.
